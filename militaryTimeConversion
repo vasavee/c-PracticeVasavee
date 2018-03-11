@@ -1,0 +1,50 @@
+/*sorting.cpp
+Mar 6, 2018
+User
+*/
+#include<iostream>
+#include<algorithm>
+#include<string.h>
+using namespace std;
+#include <sstream>
+#include <functional>
+int main(){
+	string s;
+	cin>>s;
+//Finding the length of a string
+int length=int(s.length());
+string amorpm=s.substr((length-2),2);
+string twelve=s.substr(0,2);
+string finalTime,compare,remaining;
+string withoutampm=s.substr(0,length-2);
+remaining=s.substr(2,length-4);
+if(amorpm=="AM"){
+	if(twelve=="12"){
+		compare="00";
+		finalTime=compare.append(remaining);
+	}
+	else{
+		finalTime=twelve.append(remaining);
+	}
+
+}
+else if(amorpm=="PM"){
+	if(twelve=="12"){
+			compare="12";
+			finalTime=compare.append(remaining);
+		}
+	else{
+		int comp;
+		stringstream convert(twelve);
+		convert>>comp;
+		comp=comp+12;
+		std::string huh=std::to_string(comp);
+		finalTime=huh.append(remaining);
+
+	}
+
+
+}
+cout<<finalTime;
+	return 0;
+}
