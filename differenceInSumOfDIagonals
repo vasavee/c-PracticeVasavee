@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int diagonalDifference(vector < vector<int> > arr,int n) {
+    // Complete this function
+    int md=0,od=0,diff;
+	for(int a=0;a<n;a++){
+		for(int b=0;b<n;b++){
+			if(a==b){
+				md+=arr[a][b];
+			}
+			if((a!=0 && b!=0 && a!=(n-1) && b!=(n-1))|| (a==0 && b==(n-1))||(b==0 && a==(n-1))){
+				od+=arr[a][b];
+			}
+		}
+	}
+	diff=abs(md-od);
+    return diff;
+
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector< vector<int> > a(n,vector<int>(n));
+    for(int a_i = 0;a_i < n;a_i++){
+       for(int a_j = 0;a_j < n;a_j++){
+          cin >> a[a_i][a_j];
+       }
+    }
+
+    int result = diagonalDifference(a,n);
+    cout << result << endl;
+    return 0;
+}
