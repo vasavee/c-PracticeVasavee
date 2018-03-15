@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    float cnt_p=0,cnt_n=0,cnt_z=0;
+    for(int arr_i = 0; arr_i < n; arr_i++){
+       cin >> arr[arr_i];
+        if(arr[arr_i]>0){cnt_p++;}
+        else if(arr[arr_i]==0){cnt_z++;}
+        else if(arr[arr_i]<0){cnt_n++;}
+    }
+   cout<<(cnt_p/n)<<endl<<(cnt_n/n)<<endl<<(cnt_z/n);
+    return 0;
+}
