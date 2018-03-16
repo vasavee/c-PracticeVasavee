@@ -1,0 +1,45 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+int main(){
+    int n;//number of elements in the array
+    int k,temp;//number of rotations
+    vector<int> a(n);
+    cin >> n >> k;
+    for(int a_i = 0;a_i < n;a_i++){
+        cin >> a[a_i];
+    }
+    //array_left_rotation(a, n, k);
+    for(int nRot=0;nRot<k;nRot++){
+        for(int sw=0;sw<n-1;sw++){
+            temp=a[sw];
+            a[sw]=a[sw+1];
+            a[sw+1]=temp;
+        }
+    }
+    for(int i = 0; i < n;i++)
+        cout << a[i] << " ";
+    cout << endl;
+    return 0;
+}
